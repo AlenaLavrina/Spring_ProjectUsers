@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о польвзователе</title>
+</head>
+<body>
+<h1>Информация о пользователе</h1>
+<h3 th:text="'Пользователь № ' + ${infoUser.getId()}"></h3>
+<p th:text="'Фамилия: ' + ${infoUser.getLast_Name()}"></p>
+<br>
+<p th:text="'Имя: ' + ${infoUser.getFirst_Name()}"></p>
+<br>
+<p th:text="'Отчество: ' + ${infoUser.getPatronymic()}"></p>
+<br>
+<p th:text="'Возраст: ' + ${infoUser.getAge()}"></p>
+<br>
+<p th:text="'E-mail: ' + ${infoUser.getEmail()}"></p>
+<br>
+<p th:text="'Номер телефона: ' + ${infoUser.getPhone_number()}"></p>
+<a th:href="@{/{id}/edit(id=${infoUser.getId()})}">Редактировать пользователя</a>
+<a th:href="@{/{id}/delete(id=${infoUser.getId()})}">Удалить пользователя</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+<h3>Информация о пользователях</h3>
+<div th:each="user: ${getUsers}">
+  <a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getLast_Name()}"></a>
+</div>
+<a href="/add/user">Добавить пользователя</a>
+</body>
+</html>

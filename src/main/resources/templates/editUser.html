@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+</head>
+<body>
+<h3>Редактирование пользователя</h3>
+<form th:method="POST" th:action="@{/edit/user/{id}(id=${editUser.getId()})}" th:object="${editUser}">
+  <label for="last_Name">Введите фамилию: </label>
+  <input type="text" th:field="*{last_Name}" id="last_Name">
+  <div style="color:red;" th:if="${#fields.hasErrors('last_Name')}" th:errors="*{last_Name}"></div>
+  <br>
+
+  <label for="first_Name">Введите имя: </label>
+  <input type="text" th:field="*{first_Name}" id="first_Name">
+  <div style="color:red;" th:if="${#fields.hasErrors('first_Name')}" th:errors="*{first_Name}"></div>
+  <br>
+
+  <label for="patronymic">Введите отчество: </label>
+  <input type="text" th:field="*{patronymic}" id="patronymic">
+  <div style="color:red;" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}"></div>
+  <br>
+
+  <label for="age">Введите возраст: </label>
+  <input type="text" th:field="*{age}" id="age">
+  <div style="color:red;" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+  <br>
+
+  <label for="email">Введите e-mail: </label>
+  <input type="text" th:field="*{email}" id="email">
+  <div style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+  <br>
+
+  <label for="phone_number">Введите номер телефона: </label>
+  <input type="text" th:field="*{phone_number}" id="phone_number">
+  <div style="color:red;" th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></div>
+  <br>
+
+  <input type="submit" value="Изменить">
+
+</form>
+</body>
+</html>
