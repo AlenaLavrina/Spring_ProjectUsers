@@ -41,7 +41,7 @@ public class UserController {
     @GetMapping("/{id}/edit")
     public String editUser(Model model, @PathVariable("id") int id) {
 //        model.addAttribute("editUser", userDAO.getUserID(id));
-        model.addAttribute("edit_user", userService.getUserId(id));
+        model.addAttribute("editUser", userService.getUserId(id));
         return "editUser";
     }
 
@@ -72,7 +72,7 @@ public class UserController {
     }
 
     @PostMapping("/edit/user/{id}")
-    public String editUser(@ModelAttribute("edit_user") @Valid User user, BindingResult bindingResult, @PathVariable(
+    public String editUser(@ModelAttribute("editUser") @Valid User user, BindingResult bindingResult, @PathVariable(
             "id") int id) {
          {
             if (bindingResult.hasErrors()) {
@@ -81,6 +81,41 @@ public class UserController {
 //             userDAO.updateUser(id, user);
              userService.update(id, user);
             return "redirect:/user";
+        }
+    }
+
+    //Метод по отражению страницы с сортировкой и поиском
+    @GetMapping("/sortingandsearching/user")
+    public String sorting_and_searching(){
+        return "sorting_and_searching";
+    }
+
+    @PostMapping("/sortingandserching/user")
+    public String sorting_and_searching(@RequestParam("SortingOrFilteringOptions") String SortingOrFilteringOptions, @RequestParam("option_sort_or_search") String option_sort_or_search, Model model) {
+        if (SortingOrFilteringOptions.equals("email")) {
+            model.addAttribute("sort_user",userService.getUserEmail(option_sort_or_search));
+        } else if (SortingOrFilteringOptions.equals("phone_number")) {
+            model.addAttribute("sort_user",userService.getUserPhoneNumber(option_sort_or_search));
+        } else if (SortingOrFilteringOptions.equals("last_name_and_sort_age")) {
+            model.addAttribute("sort_user",userService.getUserLastNameOrderByAge(option_sort_or_search));
+        } else if (SortingOrFilteringOptions.equals("last_name_start")) {
+            model.addAttribute("sort_user",userService.getUserLastNameStartWith(option_sort_or_search));
+        }
+        return "sorting_and_searching";
+    }
+
+    @GetMapping("/get")
+    public void text(){
+        for (User user: userService.test("Иванов")
+             ) {
+            System.out.println("Пользователь №: " + user.getId());
+            System.out.println("Фамилия: " + user.getLastName());
+            System.out.println("Имя: " + user.getFirstName());
+            System.out.println("Отчество: " + user.getPatronymic());
+            System.out.println("Возраст: " + user.getAge());
+            System.out.println("E-mail: " + user.getEmail());
+            System.out.println("Номер телефона: " + user.getPhoneNumber());
+            System.out.println();
         }
     }
 }

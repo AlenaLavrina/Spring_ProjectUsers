@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Пользователи</title>
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
 </head>
 <body>
 <h3>Информация о пользователях</h3>
 <div th:each="user: ${getUsers}">
-  <a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getLast_Name()}"></a>
+  <a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getLastName()}"></a>
 </div>
 <a href="/add/user">Добавить пользователя</a>
+<a href="/sorting_and_searching/user">Отсортировать или отфильтровать пользователей</a>
+<script th:src="@{/js/index.js}"></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сортировка и поиск пользователей</title>
+</head>
+<body>
+<h3>Сортировка и поиск пользователей</h3>
+<form method="post" th:action="@{/sorting_and_searching/user}">
+    <select name="SortingOrFilteringOptions" id="SortingOrFilteringOptions">
+        <label for="SortingOrFilteringOptions">Выберите параметр сортировки или фильтрации</label>
+        <option value="email">Фильтрация пользователей по email</option>
+        <option value="phone_number">Фильтрация пользователей по номеру телефона</option>
+        <option value="last_name_and_search_age">Фильтрация пользователей фамилии и сортировка по возрастанию возраста</option>
+        <option value="last_name_start">Фильтрация пользователей по началу символов в фамилии</option>
+    </select>
+    <label for="option_sort_and_search">Выберите параметр сортировки или фильтрации</label>
+    <input type="text" name="option_sort_and_search" id="option_sort_and_search">
+    <button type="submit">Поиск или фильтрация</button>
+</form>
+<h3>Результат поиска и сортировки</h3>
+<div th:each="element:${sort_user}">
+    <p th:text="'Фамилия: ' +${element.getLastName()}"></p>
+    <p th:text="'Имя: ' +${element.getFirstName()}"></p>
+    <p th:text="'Отчество: ' +${element.getPatronymic()}"></p>
+    <p th:text="'Возраст: ' +${element.getAge()}"></p>
+    <p th:text="'E-mail: ' +${element.getEmail()}"></p>
+    <p th:text="'Номер телефона: ' +${element.getPhoneNumber()}"></p>
+</div>
+</body>
+</html>

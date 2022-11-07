@@ -43,12 +43,12 @@ public class UserDAO {
     //Редактирование информации о пользователях
     public void updateUser(int id, User user){
         User userUpdate = getUserID(id);
-        userUpdate.setLast_Name(user.getLast_Name());
-        userUpdate.setFirst_Name(user.getFirst_Name());
+        userUpdate.setLastName(user.getLastName());
+        userUpdate.setFirstName(user.getFirstName());
         userUpdate.setPatronymic(user.getPatronymic());
         userUpdate.setAge(user.getAge());
         userUpdate.setEmail(user.getEmail());
-        userUpdate.setPhone_number(user.getPhone_number());
+        userUpdate.setPhoneNumber(user.getPhoneNumber());
     }
     //Удаление пользователя из листа по id
     public void deleteUser(int id){

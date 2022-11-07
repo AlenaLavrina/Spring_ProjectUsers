@@ -7,14 +7,14 @@
 <body>
 <h3>Редактирование пользователя</h3>
 <form th:method="POST" th:action="@{/edit/user/{id}(id=${editUser.getId()})}" th:object="${editUser}">
-  <label for="last_Name">Введите фамилию: </label>
-  <input type="text" th:field="*{last_Name}" id="last_Name">
-  <div style="color:red;" th:if="${#fields.hasErrors('last_Name')}" th:errors="*{last_Name}"></div>
+  <label for="last_name">Введите фамилию: </label>
+  <input type="text" th:field="*{lastName}" id="last_name">
+  <div style="color:red;" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
   <br>
 
-  <label for="first_Name">Введите имя: </label>
-  <input type="text" th:field="*{first_Name}" id="first_Name">
-  <div style="color:red;" th:if="${#fields.hasErrors('first_Name')}" th:errors="*{first_Name}"></div>
+  <label for="first_name">Введите имя: </label>
+  <input type="text" th:field="*{firstName}" id="first_name">
+  <div style="color:red;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
   <br>
 
   <label for="patronymic">Введите отчество: </label>
@@ -33,8 +33,8 @@
   <br>
 
   <label for="phone_number">Введите номер телефона: </label>
-  <input type="text" th:field="*{phone_number}" id="phone_number">
-  <div style="color:red;" th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></div>
+  <input type="text" th:field="*{phoneNumber}" id="phone_number">
+  <div style="color:red;" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
   <br>
 
   <input type="submit" value="Изменить">

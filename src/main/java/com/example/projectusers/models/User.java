@@ -10,11 +10,11 @@ public class User {
     private int id;
     @NotEmpty(message="Поле не может быть пустым")
     @Size(min=2, max=30, message="Поле должно содержать от 2 до 30 символов")
-    @Column(name = "LastName", length = 50, nullable = false, unique = true, columnDefinition = "TEXT")
-    private String last_Name;
+    @Column(name = "lastName", length = 50, nullable = false, unique = true, columnDefinition = "TEXT")
+    private String lastName;
     @NotEmpty(message="Поле не может быть пустым")
     @Size(min=2, max=30, message="Поле должно содержать от 2 до 30 символов")
-    private String first_Name;
+    private String firstName;
     private String patronymic;
     @Min(value=0, message="Поле не может содержать отрицательные значения")
 
@@ -26,15 +26,15 @@ public class User {
     @NotEmpty(message="Поле не может быть пустым")
     @Pattern(regexp="^((\\+7|7|8)+([0-9]){10})$", message="Номер телефона должен быть указан в формате +7/7/81234567890")
 
-    private String phone_number;
-    public User(int id, String last_Name, String first_Name, String patronymic, int age, String email, String phone_number) {
+    private String phoneNumber;
+    public User(int id, String lastName, String firstName, String patronymic, int age, String email, String phone_number) {
         this.id = id;
-        this.last_Name = last_Name;
-        this.first_Name = first_Name;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.patronymic = patronymic;
         this.age = age;
         this.email = email;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
     }
 
     public User() {
@@ -48,20 +48,20 @@ public class User {
         this.id = id;
     }
 
-    public String getLast_Name() {
-        return last_Name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_Name(String last_Name) {
-        this.last_Name = last_Name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getFirst_Name() {
-        return first_Name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_Name(String first_Name) {
-        this.first_Name = first_Name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getPatronymic() {
@@ -88,24 +88,24 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", last_Name='" + last_Name + '\'' +
-                ", first_Name='" + first_Name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
-                ", phone_number='" + phone_number + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

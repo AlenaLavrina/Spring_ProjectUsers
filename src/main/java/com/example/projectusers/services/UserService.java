@@ -47,4 +47,35 @@ public class UserService {
     {
         userRepository.deleteById(id); //delete from user_site where id = параметру id
     }
+
+    //Данный метод позволяет получить пользователя по email адресу
+    public List<User> getUserEmail(String email) {
+        List<User> users = userRepository.findByEmail(email);
+        return users;
+    }
+
+    //Данный метод позволяет получить пользователя по номеру телефона
+    public List<User> getUserPhoneNumber(String phone_number){
+        List<User> users = userRepository.findByPhoneNumber(phone_number);
+        return users;
+    }
+
+    //Данный метод позволяет получить пользователей по фамилии и отсортировать по возрасту
+    public List<User> getUserLastNameOrderByAge(String lastName){
+        List<User> users = userRepository.findByLastNameOrderByAge(lastName);
+        return users;
+    }
+
+
+    //Данный метод позволяет получить пользователей по фамилии, где фамилия начинается с определенных символов
+    public List<User> getUserLastNameStartWith(String starting_with){
+        List<User> users = userRepository.findByLastNameStartingWith(starting_with);
+        return users;
+    }
+
+    public List<User> test(String last_name){
+        List<User> users = userRepository.findByLastNameOrderByAgeAsv(last_name);
+                return users;
+    }
+
 }
